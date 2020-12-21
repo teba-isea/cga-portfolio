@@ -1,25 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button } from "reactstrap";
 
-export default () => (
-  <header className="Header-header">
-    <h1 className="Header-h1">I know my kitChen - blog</h1>
-    <nav className="Header-nav">
-      <NavLink
-        exact
-        to="/"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/about"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
-      >
-        About
-      </NavLink>
-    </nav>
-  </header>
-);
+const Header = () => {
+  return (
+    <div>
+      <Navbar color="faded" light>
+        <Link to={"/"}>
+          <NavbarBrand className="mr-auto text-white">
+            <span className="text-warning">CGA</span> Automation
+          </NavbarBrand>
+        </Link>
+        <Nav>
+          <NavItem>
+            <Button outline color="warning w-100">
+              Pagina Principal
+            </Button>{" "}
+          </NavItem>
+        </Nav>
+      </Navbar>
+    </div>
+  );
+};
+
+export default Header;
