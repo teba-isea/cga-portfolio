@@ -22,9 +22,9 @@ const Home = () => {
   return (
     <Container>
       <Row className="justify-content-center">
-        <Col md="12">
+        <Col md="12 m-0 p-0">
           <h1 className="text-center my-5">Nuestros Proyectos</h1>
-          <Row className="justify-content-center pt-5">
+          <Row className="justify-content-center pt-2">
             {projects.length > 0 ? (
               projects.map((project) => (
                 <ProjectItem key={project.url} projectData={project} />
@@ -45,8 +45,8 @@ const Home = () => {
 const query = `
   query {
   allProyectos {
-    titulo
-    imagenes {
+    tituloMiniatura
+    portada {
       responsiveImage(imgixParams: {w: "480", h: "480"}) {
           srcSet
           webpSrcSet
@@ -65,7 +65,6 @@ const query = `
           base64
       }
     }
-    descripcion
     url
   }
 }

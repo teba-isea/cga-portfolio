@@ -3,10 +3,17 @@
   font-size:3rem;
 }
 
-.carousel-img-flex{
-  max-height:75vh;
-  object-fit:cover;
+.img-fluid{
+  cursor:pointer;
 }
+
+.hover{
+  transition:all .3s ease;
+}
+.hover:hover{
+   transform:scale(1.07)
+}
+
 .carousel-img {
   width: 100%;
   height: 75vh;
