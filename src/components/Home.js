@@ -1,46 +1,50 @@
 /* eslint-disable no-empty-pattern */
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Spinner } from "reactstrap";
-import client from "../client.js";
+import React, { useEffect, useState } from "react"
+import { Container, Row, Col, Spinner } from "reactstrap"
+import client from "../client.js"
 
-import ProjectItem from "./ProjectItem.jsx";
+import Hero from "./Hero"
+import ProjectItem from "./ProjectItem.jsx"
 const Home = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    const queryProjects = async (query) => {
+    const queryProjects = async query => {
       try {
-        const res = await client.request(query);
-        setProjects(res.allProyectos);
+        const res = await client.request(query)
+        setProjects(res.allProyectos)
       } catch (e) {
-        console.log(e);
+        console.log(e)
       }
-    };
-    queryProjects(query);
-  }, []);
+    }
+    queryProjects(query)
+  }, [])
 
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col md="12 m-0 p-0">
-          <h1 className="text-center my-5">Nuestros Proyectos</h1>
-          <Row className="justify-content-center pt-2">
-            {projects.length > 0 ? (
-              projects.map((project) => (
-                <ProjectItem key={project.url} projectData={project} />
-              ))
-            ) : (
-              <Spinner
-                style={{ width: "6rem", height: "6rem" }}
-                color="warning"
-              />
-            )}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+    <>
+      <Hero />
+      <Container>
+        <Row className="justify-content-center">
+          <Col md="12 m-0 p-0">
+            <h1 className="text-center my-5">Nuestros Proyectos</h1>
+            <Row className="justify-content-center pt-2">
+              {projects.length > 0 ? (
+                projects.map(project => (
+                  <ProjectItem key={project.url} projectData={project} />
+                ))
+              ) : (
+                <Spinner
+                  style={{ width: "6rem", height: "6rem" }}
+                  color="warning"
+                />
+              )}
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  )
+}
 
 const query = `
   query {
@@ -68,6 +72,6 @@ const query = `
     url
   }
 }
-`;
+`
 
-export default Home;
+export default Home

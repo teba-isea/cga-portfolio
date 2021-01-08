@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "eslint": "^6.8.0",
     "graphql": "^15.3.0",
     "graphql-request": "^3.2.0",
@@ -16,6 +19,7 @@
     "react-markdown": "^4.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.4",
+    "react-youtube": "^7.13.0",
     "reactstrap": "^8.7.1"
   },
   "scripts": {
