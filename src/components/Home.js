@@ -48,10 +48,10 @@ const Home = () => {
 
 const query = `
   query {
-  allProyectos {
-    tituloMiniatura
-    portada {
-      responsiveImage(imgixParams: {w: "480", h: "480"}) {
+    allProyectos(orderBy: fecha_DESC) {
+      tituloMiniatura
+      portada {
+        responsiveImage(imgixParams: { w: "480", h: "480" }) {
           srcSet
           webpSrcSet
           sizes
@@ -67,11 +67,11 @@ const query = `
 
           # blur-up placeholder, JPEG format, base64-encoded
           base64
+        }
       }
+      url
     }
-    url
   }
-}
 `
 
 export default Home
